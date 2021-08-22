@@ -13,7 +13,7 @@ func Start() {
 	config.Values = config.Init()
 	r := initRouter()
 
-	host := ":" + config.Values.App.Port
-	log.Println("🚀 App listening on port", config.Values.App.Port + " 🚀")
-	http.ListenAndServe(host, r)
+	port := config.Values.App.Port
+	log.Println("🚀 App listening on port", port+" 🚀")
+	http.ListenAndServe(":"+port, r)
 }
