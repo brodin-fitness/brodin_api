@@ -2,17 +2,20 @@ package config
 
 import "os"
 
-type AppConfig struct {
+type appConfig struct {
 	Port string
 }
 
-type Config struct {
-	App AppConfig
+type config struct {
+	App appConfig
 }
 
-func New() *Config {
-	return &Config{
-		App: AppConfig{
+var Values *config
+
+// Assign environmental variables to the config struct
+func (c *config) Init() {
+	c = &config{
+		App: appConfig{
 			Port: getEnv("PORT", ":8080"),
 		},
 	}

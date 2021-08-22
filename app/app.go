@@ -1,10 +1,16 @@
 package app
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/brodin_fitness/brodin_api/config"
+)
 
 // Initialize env variables and routes, then start the server.
-func StartApp() {
+func Start() {
 	initEnv()
+	config.Values.Init()
 	r := initRouter()
-	http.ListenAndServe(":8000", r)
+
+	http.ListenAndServe(config.Values.App.Port, r)
 }
