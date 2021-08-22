@@ -16,7 +16,7 @@ var Values *config
 func Init() *config {
 	return &config{
 		App: appConfig{
-			Port: getEnv("PORT", ":8080"),
+			Port: getEnv("PORT", "8080"),
 		},
 	}
 }

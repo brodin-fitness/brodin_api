@@ -1,6 +1,7 @@
 package app
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/brodin_fitness/brodin_api/config"
@@ -12,5 +13,7 @@ func Start() {
 	config.Values = config.Init()
 	r := initRouter()
 
-	http.ListenAndServe(config.Values.App.Port, r)
+	host := ":" + config.Values.App.Port
+	log.Println("🚀 App listening on port", config.Values.App.Port + " 🚀")
+	http.ListenAndServe(host, r)
 }
