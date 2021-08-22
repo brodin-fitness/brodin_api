@@ -13,8 +13,8 @@ type config struct {
 var Values *config
 
 // Assign environmental variables to the config struct
-func (c *config) Init() {
-	c = &config{
+func Init() *config {
+	return &config{
 		App: appConfig{
 			Port: getEnv("PORT", ":8080"),
 		},

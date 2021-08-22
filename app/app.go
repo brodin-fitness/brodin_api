@@ -9,8 +9,8 @@ import (
 // Initialize env variables and routes, then start the server.
 func Start() {
 	initEnv()
-	config.Values.Init()
+	config.Values = config.Init()
 	r := initRouter()
 
-	http.ListenAndServe(":8080", r)
+	http.ListenAndServe(config.Values.App.Port, r)
 }
