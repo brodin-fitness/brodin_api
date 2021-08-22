@@ -10,7 +10,7 @@ import (
 // Initialize env variables and routes, then start the server.
 func Start() {
 	initEnv()
-	config.Values = config.Init()
+	config.Values = config.Configure()
 	r := initRouter()
 
 	port := config.Values.App.Port
