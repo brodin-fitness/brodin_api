@@ -12,5 +12,5 @@ func Start() {
 	config.Values.Init()
 	r := initRouter()
 
-	http.ListenAndServe(config.Values.App.Port, r)
+	http.ListenAndServe(":8080", r)
 }
